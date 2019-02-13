@@ -3,7 +3,7 @@
 <!-- include aframe-ar.js -->
 <script src="js/aframe-ar.js"></script>
 
-
+<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
 <script src="//vjs.zencdn.net/5.19/video.js"></script>
 
 <style type="text/css">
@@ -37,7 +37,7 @@
 	 
  	</a-assets>
 	
-	<a-video id="vid" preload="true" src="#video" width="1.8" height="1" position="0 0 0" rotation="270 0 0"  event-set__enter="_event: mouseenter; width: 1.8; height: 1;"
+	<a-video id="vid" preload="true" src="#video" width="1.8" height="1" position="0 0 0" rotation="270 0 0"  event-set__enter="_event: mouseenter; width: 1.8; height: 1;" event-set__touchstart="_event: touchstart; width: 1.8; height: 1;"
             event-set__leave="_event: mouseleave;  width: 1.8; height: 1;">
 	    <a-image id="play" src="#play-image" width="0.4" height="0.4" position="0 0 0.1" transparent="true" material="alphaTest: 0.5" data-clickable visible="true" onclick="dosomething()"></a-image>
 
@@ -105,9 +105,12 @@ function run () {
 	   
 	alert("patata"); 
    }
-  /*document.getElementById("vid").addEventListener("mouseenter",function(){
+  document.getElementById("vid").addEventListener("mouseenter",function(){
 	  dosomething();
-  },false);*/
+  },false);
+	  document.getElementById("vid").addEventListener("touchstart",function(){
+	  dosomething();
+  },false);
 	
 </script>
 	
